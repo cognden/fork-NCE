@@ -108,18 +108,13 @@
             const sentencesHTML = state.data.map(
                 (item, idx) =>
                     `<div class="sentence" data-idx="${idx}">
-                    <div class="en">${item.en}</div>
-                    <div class="cn">${item.cn}</div>
+                    <div class="sentence-content">
+                        <div class="en">${item.en}</div>
+                        <div class="cn">${item.cn}</div>
+                    </div>
                 </div>`
             ).join('');
-            const footerHTML = `
-                        <div class="end">
-                            <p>---谢谢点赞支持---</p>
-                            <p>❤️❤️❤️</p>
-                            <a target="_blank" href="https://ichochy.com"><p>By iChochy</p></a>
-                        </div>
-            `;
-            content.innerHTML = sentencesHTML + footerHTML;
+            content.innerHTML = sentencesHTML;
         }
 
         /** -------------------------------------------------
@@ -142,7 +137,8 @@
             const cur = content.querySelector(`.sentence[data-idx="${idx}"]`);
             if (cur) {
                 cur.classList.add('active');
-                cur.scrollIntoView({behavior: 'smooth', block: 'center'});
+                // 使用更平滑的滚动方式，符合苹果设计的流畅性
+                cur.scrollIntoView({behavior: 'smooth', block: 'nearest', inline: 'nearest'});
             }
             state.activeIdx = idx;
         }
@@ -181,4 +177,4 @@
         });
 
     })
-})();
+})()

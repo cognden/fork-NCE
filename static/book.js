@@ -38,8 +38,10 @@
                 lessonElement.href = `lesson.html#NCE${bookNumber}/${lesson.filename}`;
                 lessonElement.className = 'lesson-item';
                 lessonElement.innerHTML = `
-                    <span class="lesson-number">第${lessonNumber}课</span>
-                    <span class="lesson-title">${lesson.title}</span>
+                    <div class="lesson-content">
+                        <span class="lesson-number">第${lessonNumber}课</span>
+                        <span class="lesson-title">${lesson.title}</span>
+                    </div>
                 `;
                 container.appendChild(lessonElement);
             });
