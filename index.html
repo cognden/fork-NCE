@@ -1,66 +1,73 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>新概念英语 - 导航</title>
-    <link rel="stylesheet" href="static/base.css">
-    <link rel="stylesheet" href="static/index.css">
-</head>
-<body>
-<div class="content">
-    <div class="section-header">
-        <h2>全四册课文导航</h2>
-    </div>
-    <div class="books-grid">
-        <a href="book.html#NCE1" class="book-card" data-book="1">
-            <div class="book-icon">
-                <img src="images/NCE1.jpg" alt="First Things First">
-            </div>
-            <div class="book-info">
-                <div class="book-number">第一册</div>
-                <div class="book-title">First Things First</div>
-                <div class="book-subtitle">英语初阶</div>
-                <div class="lesson-count">144课</div>
-            </div>
-        </a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>新概念英语学习</title>
+    <link rel="stylesheet" href="static/style.css">
+  </head>
 
-        <a href="book.html#NCE2" class="book-card" data-book="2">
-            <div class="book-icon">
-                <img src="images/NCE2.jpg" alt="Practice and Progress">
+  <body>
+    <div class="container">
+      <nav>
+        <div>
+          <a href="#NCE1" data-book="1">壹</a>
+          <a href="#NCE2" data-book="2">贰</a>
+          <a href="#NCE3" data-book="3">叁</a>
+          <a href="#NCE4" data-book="4">肆</a>
+        </div>
+      </nav>
+      
+      <main id="content">
+        <div class="header">
+          <h1>新概念英语学习</h1>
+          <div class="now-playing" id="now-playing">暂无播放</div>
+        </div>
+      </main>
+      
+      <aside>
+        <div class="aside-content">
+          <div class="book-cover">
+            <img id="book-cover-img" src="images/NCE1.jpg" alt="课本封面">
+          </div>
+          
+          <div class="audio-controls">
+            <div class="song-info">
+              <div class="song-title" id="song-title">未选择课程</div>
+              <div class="song-artist" id="song-artist">请先选择课程</div>
             </div>
-            <div class="book-info">
-                <div class="book-number">第二册</div>
-                <div class="book-title">Practice and Progress</div>
-                <div class="book-subtitle">实践与进步</div>
-                <div class="lesson-count">96课</div>
+            
+            <div class="control-buttons">
+              <button class="control-button" id="prev-button">⏮</button>
+              <button class="control-button main" id="play-pause-button">▶</button>
+              <button class="control-button" id="next-button">⏭</button>
             </div>
-        </a>
-        
-        <a href="book.html#NCE3" class="book-card" data-book="3">
-            <div class="book-icon">
-                <img src="images/NCE3.jpg" alt="Developing Skills">
+            
+            <div class="additional-controls">
+              <div class="other-controls">
+                <div class="toggle-controls">
+                  <button class="toggle-button" id="translate-button">翻译</button>
+                </div>
+              </div>
             </div>
-            <div class="book-info">
-                <div class="book-number">第三册</div>
-                <div class="book-title">Developing Skills</div>
-                <div class="book-subtitle">培养技能</div>
-                <div class="lesson-count">60课</div>
-            </div>
-        </a>
-        
-        <a href="book.html#NCE4" class="book-card" data-book="4">
-            <div class="book-icon">
-                <img src="images/NCE4.jpg" alt="Fluency in English">
-            </div>
-            <div class="book-info">
-                <div class="book-number">第四册</div>
-                <div class="book-title">Fluency in English</div>
-                <div class="book-subtitle">流利英语</div>
-                <div class="lesson-count">48课</div>
-            </div>
-        </a>
+          </div>
+        </div>
+      </aside>
     </div>
-</div>
-</body>
+    
+    <div class="book-selector" id="book-selector">
+      <div class="book-selector-content">
+        <div class="book-selector-header">
+          <h2 id="selector-title">选择课程</h2>
+          <button class="close-button" id="close-selector">×</button>
+        </div>
+        <div class="lesson-list" id="lesson-list">
+        </div>
+      </div>
+    </div>
+    
+    <audio id="player"></audio>
+
+    <script src="static/script.js"></script>
+  </body>
 </html>
