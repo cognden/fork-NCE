@@ -1,43 +1,58 @@
 # 新概念英语点读系统（个人优化版）
 
 <p align="center">
-  <a href="http://nce.ichochy.com"><strong>原项目演示 »</strong></a>
+  <a href="http://nce.ichochy.com"><strong>原项目演示地址 »</strong></a>
   <br />
   <br />
   <a href="#功能特性">功能特性</a>
   ·
-  <a href="#新概念英语全四册介绍">教材介绍</a>
+  <a href="#技术架构">技术架构</a>
+  ·
+  <a href="#界面预览">界面预览</a>
+  ·
+  <a href="#新概念英语全四册介绍">课本介绍</a>
   ·
   <a href="#版权声明">版权声明</a>
 </p>
 
-这是一个基于 [ichochy/nce](https://github.com/ichochy/nce) 项目的 fork 版本，我对原始代码进行了界面优化和交互改进，以满足个人使用需求。
+这是一个基于 [ichochy/nce](https://github.com/ichochy/nce) 项目的改进版本，提供了更好的用户界面和增强的功能。
 
 ## 功能特性
 
 - 🎧 单句点读功能：点击任意句子即可单独播放
 - 📖 中英对照显示：原文与译文清晰对应
-- 🖥️ 响应式设计：适配桌面端和移动端浏览
-- 🎨 界面优化：现代化设计风格，更好的视觉体验
-- ⚡ 交互改进：更直观的操作流程和用户体验
+- 🖥️ 响应式设计：完美适配桌面端和移动端浏览
+- 🎨 现代化界面：采用现代化设计风格，提供更好的视觉体验
+- ⚡ 流畅交互：支持键盘快捷键操作，更直观的操作流程
+- 🔤 字幕高亮：正在播放的句子会自动高亮显示
+- 📚 完整内容：涵盖新概念英语第一册至第四册全部课本
+- 💾 本地存储：自动记住上次播放的课本
 
 ## 技术架构
 
 - 纯静态网页实现，无需后端服务
 - HTML5 + CSS3 + JavaScript 实现
 - Flexbox 布局，支持左右分栏（桌面端）和单列布局（移动端）
-- 左侧固定宽度300px显示书籍信息，右侧自适应显示课文内容
+- 左侧导航栏选择课本，中间主内容区显示课文，右侧控制面板显示书籍信息和控制按钮
+- 使用 localStorage 存储上次播放的课本信息
+- 支持键盘快捷键操作（空格键播放/暂停，左右箭头键上一句/下一句）
 
 ## 界面预览
 
-### 首页截图
-![首页截图](./images/screenshot/index-page.png)
+![首页截图](./images/screenshot/home-page.png)
 
-### 课本导航截图
-![课本导航截图](./images/screenshot/book-page.png)
+![课本选择截图](./images/screenshot/select-page.png)
 
-### 课本内容截图
-![课本内容截图](./images/screenshot/lesson-page.png)
+## 操作说明
+
+1. 使用左侧导航栏选择课本（NCE1-NCE4）
+2. 点击课本后会弹出课本选择窗口，选择具体课本
+3. 课本加载完成后，点击任意句子即可播放
+4. 使用右侧控制面板的按钮或键盘快捷键控制播放
+   - 空格键：播放/暂停
+   - 左箭头键：上一句
+   - 右箭头键：下一句
+5. 点击"翻译"按钮切换中英文字幕显示
 
 ## 新概念英语全四册介绍
 
@@ -142,44 +157,57 @@
   * 能写较长文章、报告，口语表达接近流利
   </details>
 
----
-
-## 🎯 学习路径建议
-
-1. **第一册**：打好语音、语法和口语基础
-2. **第二册**：建立完整语法体系，提升听说读写的基本能力
-3. **第三册**：重点在阅读、词汇和句型复杂度，培养复述和写作能力
-4. **第四册**：进入英语原著阅读和学术表达层面，达到准母语水平
-
-## 个人优化说明
-
-相比原版，我在以下几个方面进行了优化：
-
-- **界面设计**：采用更现代化的设计语言，提升视觉效果
-- **响应式布局**：优化移动端体验，确保在各种设备上都能良好显示
-- **交互体验**：改进用户操作流程，使功能使用更加直观便捷
-- **页面结构**：调整页面元素布局和间距，提升内容可读性
-
 ## 关于音频和翻译
 
 - 音频为美音，来源于 [tangx/New-Concept-English](https://github.com/tangx/New-Concept-English)
 - 中文字幕由 [Gemini AI](https://aistudio.google.com) 生成，未逐一核对，可能存在错误
 - 使用了作者开发的 Python 脚本 [iGSTT](https://ichochy.com/posts/shell/20251015.html) 进行中文翻译处理
 
+## 项目结构
+
+```
+.
+├── NCE1/           # 第一册课本文件
+├── NCE2/           # 第二册课本文件
+├── NCE3/           # 第三册课本文件
+├── NCE4/           # 第四册课本文件
+├── images/         # 图片等资源
+├── static/         # 静态资源目录
+│   ├── data.json   # 课本索引文件
+│   ├── script.js   # 主要功能脚本
+│   └── style.css   # 样式文件
+├── index.html      # 主页面
+├── LICENSE         # 开源许可证
+└── README.md       # 说明文档
+```
+
+## 使用方法
+
+> 由于浏览器安全限制，需要启动HTTP服务器才能正确访问资源
+
+1. 有两种启动方式：
+    - 使用Python启动服务器：`python -m http.server 8000`
+    - 或使用Node.js启动服务器：`npx serve .`
+2. 在浏览器中访问 `http://localhost:8000` 
+3. 点击左侧导航栏选择课本（壹/贰/叁/肆）
+4. 在弹出的课本列表中选择具体课本
+5. 点击句子即可播放对应音频
+6. 使用控制面板或键盘快捷键控制播放
+
 ## 项目链接
 
 - 原项目地址：[https://github.com/ichochy/nce](https://github.com/ichochy/nce)
 - 音频资源：[https://github.com/tangx/New-Concept-English](https://github.com/tangx/New-Concept-English)
-- 博客：[http://ichochy.com](http://ichochy.com)
+
+## 开源许可证
+
+本项目采用 MIT 许可证，详情请参阅 [LICENSE](LICENSE) 文件。
 
 ## 版权声明
 
 本网站的内容仅限个人学习、研究或欣赏之用，非商业用途。
 
-内容源于互联网，我们不对内容的版权归属承担任何责任。  
-如您认为本网站上的任何内容侵犯了您的著作权或其他合法权益，请通过以下联系方式通知我们。    
-联系邮箱：me@ichochy.com。   
-我们将在收到有效通知后尽快核实并采取相应措施（如删除相关内容）。  
+内容源于互联网，我们不对内容的版权归属承担任何责任。
 
 为尊重和保护著作权人的合法权益，请您支持正版，购买合法授权的教材或资源，避免使用未经授权的内容。  
 
@@ -190,10 +218,10 @@
 1. Keep learning — progress comes with persistence.（坚持学习，每一天都有进步。）
 2. Every new word brings you closer to the world.（每个新单词都是向世界迈进一步。）
 3. English is the key to a broader stage.（英语是通向更广阔舞台的钥匙。）
-4. Don’t fear mistakes — fear not speaking.（不怕说错，只怕不说。）
+4. Don't fear mistakes — fear not speaking.（不怕说错，只怕不说。）
 5. The power of language grows through practice.（语言的力量来自不断的练习。）
 6. Let English become your new tool for thinking and expression.（让英语成为你思考与表达的新工具。）
 7. Every time you speak, you build confidence.（每一次开口，都是自信的积累。）
 8. Your effort will make English speak for you.（你的努力，会让英语为你发声。）
 9. Learning English is not a task but a journey of discovery.（学习英语不是任务，而是探索世界的旅程。）
-10. Be brave — speak out; you’re better than you think.（坚定一点，说出口，你比想象中更好。）
+10. Be brave — speak out; you're better than you think.（坚定一点，说出口，你比想象中更好。）
